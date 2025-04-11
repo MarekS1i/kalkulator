@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator wyborczy</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+</head>
+<body style="display: flex; align-items: center; flex-direction: column;">
+    <div class="card" style="width: 60%; margin: 15px; background-color: rgb(233, 247, 255); border: 0px;">
+        <div class="card-body text-center text-primary">
+          <h1>Kalkulator wyborczy</h1>
+        </div>
+    </div>
+    <div class="card" style="width: 60%; background-color: rgb(233, 247, 255); border: 0px;">
+        <div class="card-body text-center text-primary">
+          <h2>Rejestracja komitetów</h2>
+          <label style="color: black;">Nazwa komitetu:</label><br>
+          <input type="text" style="margin: 10px;"><br>
+          <input type="checkbox" style="margin: 10px;"><label style="color: black;">Czy jest koalicją</label><br>
+          <label style="color: black;">Ilość głosów:</label><br>
+          <input type="text" style="margin: 10px;"><br>
+          <input type="button" value="Dodaj kolejny komitet" style="margin: 10px; background-color: royalblue; color: white; border-radius: 10px; border: 0px;">
+          <input type="button" value="Sprawdź wynik procentowy" style="margin: 10px; background-color: royalblue; color: white; border-radius: 10px; border: 0px;">
+        </div>
+    </div>
+    <div class="card" style="width: 60%; margin: 15px; background-color: rgb(233, 247, 255); border: 0px;">
+        <div class="card-body text-center text-primary">
+          <h2>Zarejestrowane komitety</h2>
+          <!-- 
+          <div class="card" style="width: 100%;">
+            <ol class="list-group list-group-flush">
+              <li class="list-group-item"></li>
+            </ol>
+          </div>
+          -->
+        </div>
+    </div>
+    <div class="card" style="width: 60%; margin: 15px; background-color: rgb(233, 247, 255); border: 0px;">
+        <div class="card-body text-center text-primary" style="align-items: center; display: flex; flex-direction: column;">
+          <h2>Wyniki wyborów</h2>
+          <table style="color: black;">
+            <tr>
+              <th style="padding: 5px; margin: 0px; background-color: lightgray;">LP</th>
+              <th style="padding: 5px; margin: 0px; background-color: lightgray;">Nazwa komitetu</th>
+              <th style="padding: 5px; margin: 0px; background-color: lightgray;">Próg wyborczy (%)</th>
+              <th style="padding: 5px; margin: 0px; background-color: lightgray;">Ilość głosów</th>
+              <th style="padding: 5px; margin: 0px; background-color: lightgray;">Wynik procentowy</th>
+            </tr>
+            </table>
+        </div>
+    </div>
+    <div class="card" style="width: 60%; margin: 15px; background-color: rgb(233, 247, 255); border: 0px;">
+        <div class="card-body text-center text-primary">
+          <p>©  Marek Suszka</p>
+        </div>
+    </div>
+</body>
+</html>
