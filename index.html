@@ -12,6 +12,7 @@
       const input = document.querySelectorAll('input[type="text"]');
       const checkbox = document.querySelector('input[type="checkbox"]');
       const przycisk = document.querySelectorAll('input[type="button"]')[0];
+      let komitety = [];
   
       const kartazarejestrowanekomitety = document.querySelectorAll('.card')[2];
       const lista = document.createElement('div');
@@ -34,12 +35,60 @@
         const listItem = document.createElement('li');
         listItem.className = "list-group-item";
         listItem.innerText = `${nazwa} ${typ}, ilość głosów: ${ileglosow}`;
+
+        komitety.push({ nazwa, czyKoalicja: checkbox.checked, glosy: ileglosow });
   
         list.appendChild(listItem);
   
         input[0].value = "";
         input[1].value = "";
         checkbox.checked = false;
+      });
+
+      const przyciskWynik = document.querySelectorAll('input[type="button"]')[1];
+      const tabela = document.querySelector('table');
+
+      przyciskWynik.addEventListener('click', function (){ 
+        const elementylisty = list.querySelectorAll('li');
+
+        let sumaglosow = 0;
+        for (let i = 0; i < komitety.length; i++) {
+          let glosy = komitety[i].glosy;
+          glosy = parseInt(glosy);
+          sumaglosow += glosy;
+        }
+
+        komitety.forEach((komitet, index) => {
+          const tr = document.createElement('tr');
+
+          const tdLp = document.createElement('td');
+          tdLp.innerText = index + 1;
+
+          const tdNazwa = document.createElement('td');
+          tdNazwa.innerText = komitet.nazwa;
+
+          let prog = 5;
+            if (komitet.czyKoalicja == true){
+                prog = 8;
+            }
+
+          const tdProg = document.createElement('td');
+          tdProg.innerText = prog;
+
+          const tdGlosy = document.createElement('td');
+          tdGlosy.innerText = komitet.glosy;
+
+          const tdProcent = document.createElement('td');
+          tdProcent.innerText = ((komitet.glosy / sumaglosow) * 100).toFixed(2) + "%";
+
+          tr.appendChild(tdLp);
+          tr.appendChild(tdNazwa);
+          tr.appendChild(tdProg);
+          tr.appendChild(tdGlosy);
+          tr.appendChild(tdProcent);
+
+          tabela.appendChild(tr);
+        });
       });
     });
   </script>
