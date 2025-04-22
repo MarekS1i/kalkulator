@@ -7,6 +7,42 @@
     <title>Kalkulator wyborczy</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
 </head>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const input = document.querySelectorAll('input[type="text"]');
+      const checkbox = document.querySelector('input[type="checkbox"]');
+      const przycisk = document.querySelectorAll('input[type="button"]')[0];
+  
+      const kartazarejestrowanekomitety = document.querySelectorAll('.card')[2];
+      const lista = document.createElement('div');
+      lista.className = "card";
+      lista.style.width = "100%";
+  
+      const list = document.createElement('ol');
+      list.className = "list-group list-group-flush";
+      lista.appendChild(list);
+      kartazarejestrowanekomitety.querySelector('.card-body').appendChild(lista);
+  
+      przycisk.addEventListener('click', function () {
+        const nazwa = input[0].value.trim();
+        const ileglosow = input[1].value.trim();
+        let typ = "nie jest koalicją";
+        if (checkbox.checked) {
+        typ = "jest koalicją";
+        }
+
+        const listItem = document.createElement('li');
+        listItem.className = "list-group-item";
+        listItem.innerText = `${nazwa} ${typ}, ilość głosów: ${ileglosow}`;
+  
+        list.appendChild(listItem);
+  
+        input[0].value = "";
+        input[1].value = "";
+        checkbox.checked = false;
+      });
+    });
+  </script>
 <body style="display: flex; align-items: center; flex-direction: column;">
     <div class="card" style="width: 60%; margin: 15px; background-color: rgb(233, 247, 255); border: 0px;">
         <div class="card-body text-center text-primary">
@@ -28,13 +64,6 @@
     <div class="card" style="width: 60%; margin: 15px; background-color: rgb(233, 247, 255); border: 0px;">
         <div class="card-body text-center text-primary">
           <h2>Zarejestrowane komitety</h2>
-          <!-- 
-          <div class="card" style="width: 100%;">
-            <ol class="list-group list-group-flush">
-              <li class="list-group-item"></li>
-            </ol>
-          </div>
-          -->
         </div>
     </div>
     <div class="card" style="width: 60%; margin: 15px; background-color: rgb(233, 247, 255); border: 0px;">
